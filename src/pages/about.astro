@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Gregor Rodriguez" description="Get to know me better">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="https://i.pinimg.com/originals/5c/7e/c7/5c7ec752b69ae8371ff5f8ebab2b48d5.gif"
+					alt=" random image"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						Hello! I'm Gregor Rodriguez, a passionate software developer based in beautiful Puerto Rico. 
+						My expertise spans both backend and frontend development, with a specialization in crafting 
+						web applications and tailored business tools.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>I honed my skills at San German Interamerican University, where I pursued a Computer Science Major.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>My proficiency extends across a broad spectrum of programming languages and technologies, including:</p>
+					<ul>
+						<li>JavaScript & some frameworks</li>
+						<li>Node.js</li>
+						<li>C++</li>
+						<li>Python</li>
+						<li>NoSQL</li>
+						<li>PostgreSQL</li>
+						<li>Capable of running tests</li>							
+						<li>Linux</li>
+						<li>API development</li>
+						<li>Blockchain technology</li>
+						<li>Cloud services</li>
+						<li>AWS services</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: #4C4B63;
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: #4C4B63 !important;
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content ul {
+		padding: 10px;
+
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+
+		/* .content ul {
+			padding: 30px;
+		} */
+	}
+</style>
